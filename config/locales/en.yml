@@ -4,6 +4,7 @@ en:
   layouts:
     header:
       project_name: 项目名称
+      slogan: 通用网站模板
       home: 首页
       help: 帮助
       about: 关于
