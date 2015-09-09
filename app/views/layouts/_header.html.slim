@@ -12,6 +12,7 @@ header.navbar.navbar-inverse.navbar-fixed-top
       ul.nav.navbar-nav
         li class=(active_page(root_path))
           = link_to t('.home'), root_path
+        = render 'layouts/admin_action'
         li class=(active_page(help_path))
           = link_to t('.help'), help_path
         li class=(active_page(about_path))
