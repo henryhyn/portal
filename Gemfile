@@ -41,6 +41,7 @@ gem 'slim-rails', '~> 3.0.1' # Provides the generator settings required for Rail
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.3.3' # rspec-rails is a testing framework for Rails 3.x and 4.x.
 end
 
 group :development do
