@@ -7,16 +7,14 @@ header.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand[href='#']
-        | Project name
+      = link_to 'Project name', root_path, class: 'navbar-brand'
     nav#navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
-          a[href='#']
-            | Home
+          = link_to 'Home', root_path
         li
-          a[href='#about']
-            | About
+          = link_to 'Help', help_path
         li
-          a[href='#contact']
-            | Contact
+          = link_to 'About', about_path
+        li
+          = link_to 'Contact', contact_path
