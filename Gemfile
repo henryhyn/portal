@@ -42,6 +42,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.3.3' # rspec-rails is a testing framework for Rails 3.x and 4.x.
+  gem 'spork-rails', '~> 4.0.0' # Plugin for Spork to support Rails.
+  gem 'guard-rspec', '~> 4.6.4' # Guard::RSpec automatically run your specs
+  gem 'guard-spork', '~> 2.1.0' # Guard::Spork automatically manage Spork DRb servers.
 end
 
 group :development do
