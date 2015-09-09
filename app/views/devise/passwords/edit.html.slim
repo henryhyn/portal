@@ -1,22 +1,20 @@
-h2
-  | Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+- provide :title, t('devise.views.passwords.edit.title')
+
+h1 = t('devise.views.passwords.edit.title')
+
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f|
   = devise_error_messages!
   = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    br
+  .form-group
+    = f.label :password, t('devise.views.passwords.edit.password')
     - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-      br
-    = f.password_field :password, autofocus: true, autocomplete: "off"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
+      small
+        = t('devise.views.links.length_tip', count: @minimum_password_length)
+    = f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control'
+  .form-group
+    = f.label :password_confirmation, t('devise.views.passwords.edit.password_confirmation')
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
   .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+    = f.submit t('devise.views.passwords.edit.submit'), class: 'btn btn-primary'
+= link_to t('devise.views.links.sign_in'), new_session_path(resource_name)
+= link_to t('devise.views.links.sign_up'), new_registration_path(resource_name)

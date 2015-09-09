@@ -1,24 +1,21 @@
-h2
-  | Sign up
+- provide :title, t('devise.views.links.sign_up')
+
+h1 = t('devise.views.links.sign_up')
+
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .field
+    = f.email_field :email, autofocus: true, class: 'form-control'
+  .form-group
     = f.label :password
     - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
+      small
+        = t('devise.views.links.length_tip', count: @minimum_password_length)
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+  .form-group
     = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
   .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+    = f.submit t('devise.views.links.sign_up'), class: 'btn btn-primary'
+= link_to t('devise.views.links.sign_in'), new_session_path(resource_name)

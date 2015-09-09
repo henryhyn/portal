@@ -1,37 +1,33 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+- provide :title, t('devise.views.registrations.edit.title')
+
+h1 = t('devise.views.registrations.edit.title')
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :email
-    br
-    = f.email_field :email, autofocus: true
+    = f.email_field :email, autofocus: true, class: 'form-control'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
-      | Currently waiting confirmation for: 
+      | Currently waiting confirmation for:
       = resource.unconfirmed_email
-  .field
+  .form-group
     = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
+    small
+      = t('devise.views.registrations.edit.change_pass_tip')
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+  .form-group
     = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+  .form-group
     = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "off"
+    small
+      = t('devise.views.registrations.edit.confirm_pass_tip')
+    = f.password_field :current_password, autocomplete: "off", class: 'form-control'
   .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
+    = f.submit t('devise.views.registrations.edit.submit'), class: 'btn btn-primary'
+
+h1 = t('devise.views.registrations.destroy.title')
 p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+  | Unhappy?
+  = button_to t('devise.views.registrations.destroy.submit'), registration_path(resource_name), data: {confirm: t('devise.views.registrations.destroy.destroy_tip')}, method: :delete, class: 'btn btn-danger'
