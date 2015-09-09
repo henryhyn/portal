@@ -29,6 +29,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim-rails', '~> 3.0.1' # Provides the generator settings required for Rails 3 and 4 to use Slim
 
+gem 'devise', '~> 3.5.2' # Flexible authentication solution for Rails with Warden
+gem 'omniauth', '~> 1.2.2' # A generalized Rack framework for multiple-provider authentication.
+gem 'omniauth-oauth2', '~> 1.3.1' # An abstract OAuth2 strategy for OmniAuth.
+gem 'letter_opener', '~> 1.4.1' # Letter Opener will open a preview in the browser instead of sending.
+gem 'cancan', '~> 1.6.10' # Simple authorization solution for Rails which is decoupled from user roles.
+gem 'rolify', '~> 4.1.1' # Very simple Roles library
+gem 'safe_yaml', '~> 1.0.4' # Parse YAML safely
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
