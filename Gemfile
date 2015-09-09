@@ -52,3 +52,6 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'capybara', '~> 2.5.0' # Capybara is an integration testing tool for rack based web applications.
+end
