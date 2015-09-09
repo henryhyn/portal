@@ -47,12 +47,14 @@ gem 'safe_yaml', '~> 1.0.4' # Parse YAML safely
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'annotate', '~> 2.6.10' # Annotates
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.3.3' # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'spork-rails', '~> 4.0.0' # Plugin for Spork to support Rails.
   gem 'guard-rspec', '~> 4.6.4' # Guard::RSpec automatically run your specs
   gem 'guard-spork', '~> 2.1.0' # Guard::Spork automatically manage Spork DRb servers.
+  gem 'faker', '~> 1.5.0' # easily generate fake data
 end
 
 group :development do

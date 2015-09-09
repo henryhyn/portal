@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Reset database..."
+
+rake db:migrate VERSION=0
+rake db:migrate
+rake db:initialize
+rake db:populate
+rake sample:initialize
+rake sample:populate
+annotate --position before
+rspec

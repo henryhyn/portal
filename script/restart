@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Restart database..."
+HERE=`dirname $0`
+
+rake db:drop
+rake db:create
+
+sh $HERE/reset
