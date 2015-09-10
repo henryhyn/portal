@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909171904) do
+ActiveRecord::Schema.define(version: 20150910022421) do
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.integer  "status",      limit: 4, default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id", "status"], name: "index_relationships_on_follower_id_and_followed_id_and_status", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 32
     t.string   "title",                  limit: 32
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "authentication_token",   limit: 255
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -26,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150909171904) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "provider",               limit: 255
+    t.integer  "uid",                    limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end

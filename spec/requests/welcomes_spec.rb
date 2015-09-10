@@ -9,6 +9,16 @@ RSpec.describe 'Welcomes', type: :request do
     it { should have_content(I18n.t('layouts.header.project_name')) }
     it { should have_title(full_title('')) }
     it { should_not have_title(full_title(I18n.t('layouts.header.home'))) }
+
+    describe 'for signed-in users' do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+        visit user_path(user)
+      end
+
+      it { should have_content(user.name) }
+    end
   end
 
   describe 'Help page' do

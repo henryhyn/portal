@@ -54,6 +54,7 @@ group :development, :test do
   gem 'spork-rails', '~> 4.0.0' # Plugin for Spork to support Rails.
   gem 'guard-rspec', '~> 4.6.4' # Guard::RSpec automatically run your specs
   gem 'guard-spork', '~> 2.1.0' # Guard::Spork automatically manage Spork DRb servers.
+  gem 'factory_girl_rails', '4.5.0' # provides integration between factory_girl and rails 3
   gem 'faker', '~> 1.5.0' # easily generate fake data
 end
 
