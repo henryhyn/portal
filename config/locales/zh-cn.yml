@@ -5,10 +5,21 @@ zh-cn:
     header:
       project_name: 项目名称
       slogan: 通用网站模板
+      profile: 个人信息
       home: 首页
       help: 帮助
       about: 关于
       contact: 联系
+  activerecord:
+    models:
+      user: 用户
+    attributes:
+      user:
+        email: 邮箱
+        password: 密码
+        password_confirmation: 确认密码
+        current_password: 当前密码
+        remember_me: 记住我
   devise:
     confirmations:
       confirmed: 恭喜您，注册成功，现在可以登录了

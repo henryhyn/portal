@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  #
+  # Profile Area
+  #
+  get '/u/:name' => 'users#show', as: :user, constraints: { name: /(?:[^.]|\.(?!json$))+/, format: /json/ }
+
   root 'welcome#index'
   get 'help' => 'welcome#help'
   get 'about' => 'welcome#about'

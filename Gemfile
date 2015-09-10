@@ -67,4 +67,6 @@ end
 
 group :test do
   gem 'capybara', '~> 2.5.0' # Capybara is an integration testing tool for rack based web applications.
+  gem 'cucumber-rails', '~> 1.4.2' # Cucumber Generator and Runtime for Rails
+  gem 'database_cleaner', '~> 1.5.0' # ensure a clean state for testing.
 end

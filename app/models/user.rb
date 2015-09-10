@@ -3,6 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  name                   :string(32)
+#  title                  :string(32)
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
@@ -22,4 +24,28 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  #
+  # Validations
+  #
+  validates :email, presence: true, email: {strict_mode: true}, uniqueness: true
+  validates :name, presence: true, length: {maximum: 50}
+
+  before_create :default_values
+  before_save { self.name = name && name.to_s.downcase }
+
+  #
+  # Instance methods
+  #
+
+  def to_param
+    name
+  end
+
+  private
+
+  def default_values
+    self.name ||= email.split("@").first[0..31]
+    self.title ||= name
+  end
 end

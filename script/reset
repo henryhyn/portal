@@ -9,3 +9,4 @@ rake sample:initialize
 rake sample:populate
 annotate --position before
 rspec
+cucumber
